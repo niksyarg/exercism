@@ -1,0 +1,12 @@
+(defun response-for (phrase)
+  (let* ((trimmed (string-trim phrase))
+         (is-silent (string-empty-p trimmed))
+         (has-letters (not (null (string-match-p "[[:alpha:]]" trimmed))))
+         (is-yelling (and has-letters (string-equal trimmed (upcase trimmed))))
+         (is-question (string-suffix-p "?" trimmed)))
+    (cond
+     ((and is-yelling is-question) "Calm down, I know what I'm doing!")
+     (is-yelling "Whoa, chill out!")
+     (is-question "Sure.")
+     (is-silent "Fine. Be that way!")
+     (t "Whatever."))))
