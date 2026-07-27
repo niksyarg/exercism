@@ -1,0 +1,11 @@
+(defun steps (number)
+  "Count the steps to reach 1 using the Collatz conjecture."
+  (if (<= number 0)
+      (error "Only positive integers are allowed")
+    (let ((count 0))
+      (while (> number 1)
+        (if (zerop (% number 2))
+            (setq number (/ number 2))
+          (setq number (+ (* 3 number) 1)))
+        (setq count (1+ count)))
+      count)))
