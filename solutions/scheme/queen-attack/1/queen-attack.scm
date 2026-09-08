@@ -1,0 +1,10 @@
+(import (rnrs))
+
+(define (attacking? white black)
+  (let ((w-row (car white))
+        (w-col (cadr white))
+        (b-row (car black))
+        (b-col (cadr black)))
+    (or (= w-row b-row)                              
+        (= w-col b-col)                               
+        (= (abs (- w-row b-row)) (abs (- w-col b-col)))))) 
