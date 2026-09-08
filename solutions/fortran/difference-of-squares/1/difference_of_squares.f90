@@ -1,0 +1,25 @@
+module difference_of_squares
+   implicit none
+contains
+
+   integer function square_of_sum(n)
+      integer :: n
+      integer :: total_sum
+      
+      total_sum = (n * (n + 1)) / 2
+      square_of_sum = total_sum * total_sum
+   end function square_of_sum
+
+   integer function sum_of_squares(n)
+      integer :: n
+      
+      sum_of_squares = (n * (n + 1) * (2 * n + 1)) / 6
+   end function sum_of_squares
+
+   integer function difference(n)
+      integer :: n
+      
+      difference = square_of_sum(n) - sum_of_squares(n)
+   end function difference
+
+end module difference_of_squares
